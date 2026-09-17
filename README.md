@@ -20,9 +20,10 @@ Held-out F4 on 32 dev queries, mean of two independent eval draws per checkpoint
 (single-draw standard error is about 0.03). Each run is 64 queries × 8 rollouts per
 update, 24 updates, 12,288 rollouts.
 
+The untrained base model scores 0.166 on this eval.
+
 | Recipe | Config | Update 16 | Update 20 | Update 24 | Cost at list prices |
 |---|---|---|---|---|---|
-| Base model | – | 0.166 | | | |
 | F4 | `configs/f4.toml` | 0.202 | 0.284 | 0.316 | $134–384 |
 | F4 + discovery bonus − per-doc cost | `configs/f4_w_traj_recall.toml` | 0.246 | 0.295 | 0.305 | $149–412 |
 | F4 + format penalty 0.1 | `configs/f4_w_format_penalty.toml` | 0.353 | **0.424** | 0.418 | $174–533 |
