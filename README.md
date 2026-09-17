@@ -24,8 +24,8 @@ update, 24 updates, 12,288 rollouts.
 |---|---|---|---|---|---|
 | Base model | – | 0.166 | | | |
 | F4 | `configs/f4.toml` | 0.202 | 0.284 | 0.316 | $134–384 |
-| F4 + discovery bonus − per-doc cost | `configs/f4s.toml` | 0.246 | 0.295 | 0.305 | $149–412 |
-| F4 + format penalty 0.1 | `configs/f4_format_penalty.toml` | 0.353 | **0.424** | 0.418 | $174–533 |
+| F4 + discovery bonus − per-doc cost | `configs/f4_w_traj_recall.toml` | 0.246 | 0.295 | 0.305 | $149–412 |
+| F4 + format penalty 0.1 | `configs/f4_w_format_penalty.toml` | 0.353 | **0.424** | 0.418 | $174–533 |
 
 The cost range spans none to all of the prompt prefill being served from cache. Each run
 took about 8–12 hours of wall-clock time, dominated by sampling.
@@ -43,8 +43,10 @@ Requires Python 3.11 and [uv](https://docs.astral.sh/uv/). Every dependency is p
 
 ```bash
 uv sync
-cp .env.example .env   # then fill in TINKER_API_KEY
+./scripts/setup_env.sh   # prompts for TINKER_API_KEY and the optional keys, writes .env
 ```
+
+Or copy `.env.example` to `.env` and fill it in by hand.
 
 Load the keys into your shell before running anything that talks to Tinker:
 
@@ -90,14 +92,14 @@ uv run sec-rl train --config configs/smoke.toml
 The best recipe, one epoch (16 updates):
 
 ```bash
-uv run sec-rl train --config configs/f4_format_penalty.toml
+uv run sec-rl train --config configs/f4_w_format_penalty.toml
 ```
 
 Then continue the same run for half an epoch more on re-shuffled queries, keeping the
 optimizer state (this is how all three results above reached update 24):
 
 ```bash
-uv run sec-rl train --config configs/f4_format_penalty.toml --resume --epochs 2 --max-steps 24
+uv run sec-rl train --config configs/f4_w_format_penalty.toml --resume --epochs 2 --max-steps 24
 ```
 
 Add `--wandb-project <name>` to log to Weights & Biases (needs `WANDB_API_KEY`). The run

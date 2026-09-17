@@ -17,5 +17,5 @@ max-generation-tokens = 2048
 eval-every = 0
 save-every = 1
 seed = 42
-log-path = "runs/f4_format_penalty"
+log-path = "runs/f4_w_format_penalty"
 format-penalty = 0.1

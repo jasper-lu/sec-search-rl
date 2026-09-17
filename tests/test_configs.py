@@ -5,7 +5,7 @@ import pytest
 from sec_rl.cli import parse_args
 
 CONFIGS = Path(__file__).resolve().parents[1] / "configs"
-TRAIN_CONFIGS = ("f4.toml", "f4s.toml", "f4_format_penalty.toml", "smoke.toml")
+TRAIN_CONFIGS = ("f4.toml", "f4_w_traj_recall.toml", "f4_w_format_penalty.toml", "smoke.toml")
 
 
 @pytest.mark.parametrize("name", TRAIN_CONFIGS)

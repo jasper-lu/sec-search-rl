@@ -16,4 +16,4 @@ max-generation-tokens = 2048
 eval-every = 0
 save-every = 1
 seed = 42
-log-path = "runs/f4s"
+log-path = "runs/f4_w_traj_recall"
