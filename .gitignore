@@ -1,0 +1,12 @@
+.venv/
+.env
+data/
+runs/
+evals/
+__pycache__/
+*.pyc
+*.npy
+*.tmp
+.pytest_cache/
+.ruff_cache/
+wandb/

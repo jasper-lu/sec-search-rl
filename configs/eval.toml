@@ -1,0 +1,14 @@
+# Held-out eval: the first 32 dev queries of data/sec_subset, one rollout each,
+# searched over that subset's 124k-chunk corpus with the training episode budget.
+model = "openai/gpt-oss-20b"
+renderer = "gpt_oss_no_sysprompt"
+data-dir = "data/sec_subset"
+reward = "f4"
+split = "dev"
+limit = 32
+tries = 1
+concurrency = 16
+max-turns = 40
+max-tool-calls = 128
+max-trajectory-tokens = 30720
+max-generation-tokens = 2048

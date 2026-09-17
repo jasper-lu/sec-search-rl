@@ -1,0 +1,19 @@
+# Shaped reward: F4 + 0.2 x candidate recall (fact groups the agent saw at all)
+# 64 queries x 8 rollouts per update; 16 updates = one epoch of data/sec_1024.
+model = "openai/gpt-oss-20b"
+renderer = "gpt_oss_no_sysprompt"
+data-dir = "data/sec_1024"
+reward = "f4s"
+learning-rate = 1e-4
+lora-rank = 32
+group-size = 8
+groups-per-batch = 64
+max-steps = 16
+max-turns = 40
+max-tool-calls = 128
+max-trajectory-tokens = 30720
+max-generation-tokens = 2048
+eval-every = 0
+save-every = 1
+seed = 42
+log-path = "runs/f4s"

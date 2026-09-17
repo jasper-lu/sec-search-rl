@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "sec-search-rl: RL for a search agent on SEC filings with Tinker"
+authors:
+  - family-names: Lu
+    given-names: Jasper
+year: 2026
+url: "https://github.com/jasper-lu/sec-search-rl"
+license: MIT

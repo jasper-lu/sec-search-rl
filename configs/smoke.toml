@@ -1,0 +1,12 @@
+# One tiny update on the small subset: checks credentials, data and the
+# training loop end to end for a few dollars.
+model = "openai/gpt-oss-20b"
+renderer = "gpt_oss_no_sysprompt"
+data-dir = "data/sec_subset"
+reward = "f4"
+groups-per-batch = 2
+group-size = 4
+max-steps = 1
+max-turns = 40
+max-trajectory-tokens = 30720
+log-path = "runs/smoke"
